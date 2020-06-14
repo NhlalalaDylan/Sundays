@@ -40,12 +40,9 @@ jobs:
             - ./vendor
      
       - run: yarn install
-     
-
-    
-     
-
-      # run tests with phpunit
-      - run: chmod +x vendor/bin/phpunit
-      - run: ./vendor/bin/phpunit
       
+
+      
+      # run tests with phpunit or codecept
+      - run: chmod +x vendor/bin/phpunit
+     
