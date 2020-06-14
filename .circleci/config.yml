@@ -29,4 +29,4 @@ jobs:
       # run tests!
       - run: composer require --dev phpunit/phpunit ^9
      
-      - run: ./vendor/bin/phpunit
+      - run: php vendor/bin/phpunit
