@@ -38,11 +38,14 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
-      
+     
       - run: yarn install
      
 
+    
      
-     - run: chmod +x vendor/bin/phpunit
-     
+
+      # run tests with phpunit
+      - run: chmod +x vendor/bin/phpunit
       - run: ./vendor/bin/phpunit
+      
