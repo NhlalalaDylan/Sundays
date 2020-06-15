@@ -17,15 +17,14 @@ jobs:
       - checkout
       - run:
           command: |
-            mkdir -p phpunit-out
-            php vendor/bin/phpunit --log-junit phpunit-out/junit.xml 
+            mkdir -p ~/phpunit
+            php vendor/bin/phpunit --log-junit ~/phpunit/junit.xml 
             
           when: always
       - store_test_results:
-          path: phpunit-out
+          path: ~/phpunit
       - store_artifacts:
-          path: phpunit-out
-           
+          path: ~/phpunit           
       # Download and cache dependencies
       - restore_cache:
           keys:
