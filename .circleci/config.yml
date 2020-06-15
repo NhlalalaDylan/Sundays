@@ -17,12 +17,12 @@ jobs:
       - checkout
       - run:
           command: |
-            mkdir -p ~$CIRCLE_TEST_REPORTS/phpunit
-            docker run -t --name punit $DOCKER_REPOSITORY:$DOCKER_TAG php vendor/bin/phpunit --log-junit ~/phpunit/junit.xml
+            mkdir -p ~/phpunit
+            php vendor/bin/phpunit --log-junit ~/phpunit/junit.xml
             
           when: always
       - store_test_results:
-          path: ~$CIRCLE_TEST_REPORTS/phpunit
+          path: ~/phpunit
       - store_artifacts:
           path: ~/phpunit 
            
