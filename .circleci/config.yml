@@ -19,7 +19,7 @@ jobs:
           command: |
             mkdir -p phpunit-out
             php vendor/bin/phpunit --log-junit phpunit-out/junit.xml 
-            echo "done"
+            
           when: always
       - store_test_results:
           path: phpunit-out
