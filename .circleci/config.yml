@@ -17,14 +17,14 @@ jobs:
       - checkout
       - run:
           command: |
-            mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-            $DOCKER_REPOSITORY:$DOCKER_TAG php vendor/bin/phpunit --log-junit/tmp/phpunit/junit.xml docker cp punit:/tmp/phpunit/junit.xml $CIRCLE_TEST_REPORTS/phpunit/junit.xml
-            
+            mkdir -p phpunit-out
+            php vendor/bin/phpunit --log-junit phpunit-out/junit.xml 
+            echo "done"
           when: always
       - store_test_results:
-          path: $CIRCLE_TEST_REPORTS/phpunit
+          path: phpunit-out
       - store_artifacts:
-          path: $CIRCLE_TEST_REPORTS/phpunit
+          path: phpunit-out
            
       # Download and cache dependencies
       - restore_cache:
