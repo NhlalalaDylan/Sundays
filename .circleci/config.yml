@@ -22,9 +22,9 @@ jobs:
             
           when: always
       - store_test_results:
-          path: ~$CIRCLE_TEST_REPORTS/phpunit
+          path: $CIRCLE_TEST_REPORTS/phpunit
       - store_artifacts:
-          path: ~$CIRCLE_TEST_REPORTS/phpunit
+          path: $CIRCLE_TEST_REPORTS/phpunit
            
       # Download and cache dependencies
       - restore_cache:
