@@ -15,8 +15,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          command: |
+      - test:
+          override:
             mkdir -p ~$CIRCLE_TEST_REPORTS/phpunit
             docker run -it $DOCKER_REPOSITORY:$DOCKER_TAG php vendor/bin/phpunit --log-junit ~$CIRCLE_TEST_REPORTS/phpunit/junit.xml
             
