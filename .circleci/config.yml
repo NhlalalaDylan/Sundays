@@ -21,7 +21,7 @@ jobs:
             php vendor/bin/phpunit --log-junit ~/phpunit/junit.xml tests
           when: always
       - store_test_results:
-          path: ~$CIRCLE_TEST_REPORTS/phpunit
+          path: ~/phpunit
       - store_artifacts:
           path: ~/phpunit 
            
