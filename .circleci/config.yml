@@ -17,14 +17,14 @@ jobs:
       - checkout
       - run:
           command: |
-            mkdir -p ~/phpunit
-            php vendor/bin/phpunit --log-junit ~/phpunit/junit.xml
+            mkdir -p ~$CIRCLE_TEST_REPORTS/phpunit
+            php vendor/bin/phpunit --log-junit ~$CIRCLE_TEST_REPORTS/phpunit/junit.xml
             
           when: always
       - store_test_results:
-          path: ~/phpunit
+          path: ~$CIRCLE_TEST_REPORTS/phpunit
       - store_artifacts:
-          path: ~/phpunit 
+          path: ~$CIRCLE_TEST_REPORTS/phpunit
            
       # Download and cache dependencies
       - restore_cache:
